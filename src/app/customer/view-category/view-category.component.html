@@ -1,0 +1,78 @@
+< <!-- Modal Search Start -->
+	<div class="modal fade" id="searchModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog modal-fullscreen">
+			<div class="modal-content rounded-0">
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalLabel">Search by keyword</h5>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body d-flex align-items-center">
+					<div class="input-group w-75 mx-auto d-flex">
+						<input type="search" class="form-control p-3" placeholder="keywords"
+							aria-describedby="search-icon-1">
+						<span id="search-icon-1" class="input-group-text p-3"><i class="fa fa-search"></i></span>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Modal Search End -->
+	<!-- Single Page Header start -->
+	<div class="container-fluid page-header py-5">
+		<h1 class="text-center text-white display-6">View Category </h1>
+		<ol class="breadcrumb justify-content-center mb-0">
+			<li style="color: rgb(245, 245, 238);"> <a routerLink="/customer-layout/home">Home/</a> </li>
+			<li style="color: yellow;"> View Category</li>
+		</ol>
+	</div>
+	<!-- Single Page Header End -->
+
+
+	<!-- Featurs Start -->
+	<div class="container-fluid fruite py-5">
+		<div class="container py-5">
+			<div class="tab-class text-center">
+
+				<div class="tab-content">
+					<div id="tab-1" class="tab-pane fade show p-0 active">
+						<div class="row g-4">
+							<div class="col-lg-12">
+								<div class="row g-4">
+									<div class="col-md-6 col-lg-4 col-xl-3" *ngFor=" let x of categories">
+										<div class="rounded position-relative fruite-item">
+											<a routerLink="/customer-layout/viewproduct">
+
+												<div class="fruite-img">
+													<img style="height: 300px;" [src]="getImgSrc(x?.image)"
+														class="img-fluid w-100 rounded-top" alt="">
+												</div>
+												<div class="text-white bg-secondary px-3 py-1 rounded position-absolute"
+													style="top: 10px; left: 10px;">NEW</div>
+												<div class="p-4 border border-secondary border-top-0 rounded-bottom">
+													<h6>{{x?.name}}</h6>
+													<!-- <h4>Fighter</h4> -->
+													<p style="height:100px;    text-overflow: clip ;overflow: hidden;  ">
+														<span style="width: 150px;     flex-shrink: inherit;
+														">{{x?.description}}</span></p>
+													<div class="d-flex justify-content-between flex-lg-wrap">
+														<div class="col-lg-12">
+															<a [routerLink]="['/customer-layout/viewproduct', x?._id]"
+																class="btn border border-secondary rounded-pill px-3 text-primary"><i
+																	class="fa fa-shopping-bag me-2 text-primary"></i>view
+																Product</a>
+														</div>
+
+													</div>
+												</div>
+											</a>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Featurs End -->

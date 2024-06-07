@@ -1,0 +1,61 @@
+<!-- Single Page Header start -->
+<div class="container-fluid page-header py-5">
+    <h1 class="text-center text-white display-6">Traking Detail </h1>
+    <ol class="breadcrumb justify-content-center mb-0">
+        <li style="color: rgb(245, 245, 238);"> <a routerLink="/customer-layout/home">Home/</a> </li>
+        <li style="color: yellow;"> Traking </li>
+    </ol>
+</div>
+
+
+<div class="container px-1 px-md-4 py-5 mx-auto">
+    <div class="card">
+        <div class="row d-flex justify-content-between px-3 top">
+
+            <div class="top" style="display: flex; flex-direction: column;    text-align: left; ">
+                <section>
+                    <div class="container">
+                        <div class="row">
+                            <div class="p-2   text-align: right; ">
+                                <h3>Traking History</h3>
+                            </div>
+                            <table  class="table  table-warning">
+                                <thead>
+                                    <tr >
+                                        <th scope="col"># OrderId</th> 
+                                        <th scope="col">Item Name</th>
+                                        <th scope="col"> Item Price</th>
+                                        <th scope="col">Date</th>
+                                        <th scope="col">Traking Status</th>
+                                        <th scope="col">Action</th>
+
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                 <tr *ngFor="let x of orders ">
+                                    <td>{{x?._id }}</td>
+                                    <td>{{x?.name}}</td>
+                                    <td>{{x?.createdAt | date}}</td>
+                                    <td>{{x?.total | currency: 'INR'}}</td>
+                                    <td class="text-danger">{{x?.status}}</td>
+                                     <td>
+                                        <button class="btn btn-primary    btn-sm p-2"(click)="changeStatus(x?._id, 'OrderProcessed')" *ngIf="x?.status == 'Approved'" >OrderProcessed</button>
+                                        <button class="btn btn-primary    btn-sm p-2"(click)="changeStatus(x?._id, 'OrderShipped')" *ngIf="x?.status == 'OrderProcessed'" >OrderShipped</button>
+                                        <button class="btn btn-primary    btn-sm p-2"(click)="changeStatus(x?._id, 'OrderEN_Rout')" *ngIf="x?.status == 'OrderShipped'" >OrderEN_Rout</button>
+
+
+                                        <button class="btn btn-primary    btn-sm p-2"(click)="changeStatus(x?._id, 'OrderReceved')" *ngIf="x?.status == 'OrderEN_Rout'" >OrderReceved</button>
+
+                                     </td>
+                                 </tr>
+                                </tbody>
+                            </table>
+
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+
+    </div>
+</div>

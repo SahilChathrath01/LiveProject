@@ -1,0 +1,76 @@
+<!-- Contact Start -->
+
+
+<div class="img-fluid contact "
+    style="background: url(assets/images/login1.png);  background-size:cover;  height: 800%;  background-repeat: no-repeat; ">
+
+    <div class="container py-5">
+
+        <div class="row  p-5  rounded " style="backdrop-filter: blur(px); height: 800px;  background:rgba(26, 26, 26, 0.37)  ">
+            <div class="row g-4">
+                <div class="col-12">
+                    <div class="text-center mx-auto" style="max-width: 700px;">
+                        <h1 class="text-primary"> <i style="font-size: 50px;">Athlete Equipments
+                        </i></h1>
+                        <h3 class="text-white "> <b class=""><a routerLink="/customer-layout/home"> Go To Home</a> /Login for more... </b>
+                        </h3>
+
+                    </div>
+                </div>
+                <div class="col-lg-3"></div>
+                <div class="col-lg-6">
+                    <form [formGroup]="loginForms" (submit)="loginSubmit()">
+                        <div class="col-lg-12 form-group">
+                            <!-- icons  -->
+                            <small *ngIf="loginForms.controls['email'].invalid && loginForms.controls['email'].touched" >
+                                <i class="bi bi-exclamation-circle icons "
+                                     ></i>
+                            </small>
+
+                            <small *ngIf="loginForms.controls['email'].valid && loginForms.controls['email'].touched">
+                                <i class="bi bi-check2-circle  icon"
+                                      ></i>
+                            </small>
+
+                            <!-- icons end -->
+                            <input type="email" class="w-100 form-control border-0 py-3 mb-4"
+                                placeholder="Enter Your Email" formControlName="email">
+                        </div>
+
+
+                        <div class="col-lg-12 form-group">
+                            <!-- error icon  -->
+                            <small
+                                *ngIf="loginForms.controls['password'].invalid && loginForms.controls['password'].touched ">
+                                <i class="bi bi-exclamation-circle icons"
+                                   ></i>
+                            </small>
+                            <!-- icon end -->
+
+                               <!-- check icon -->
+                            <small
+                                *ngIf="loginForms.controls['password'].valid && loginForms.controls['password'].touched">
+                                <i class="bi bi-check2-circle icon"
+                                     ></i>
+                            </small>
+
+                            <!-- check end -->
+                            <input type="password" class="w-100 form-control border-0 py-3 mb-4" placeholder="Password"
+                                formControlName="password">
+                        </div>
+
+                        <button class="w-100 btn form-control border-secondary py-3 bg-white text-primary "
+                            type="submit" [disabled]="loginForms.invalid">Login</button>
+                    </form>
+                </div>
+                <div class="col-lg-3">
+                </div>
+            </div>
+            <a routerLink="/customer-layout/register" class="m-4">
+                <p class="text-center text-white "> Don't have an account? Register</p>
+            </a>
+        </div>
+    </div>
+</div>
+
+<!-- Contact End -->

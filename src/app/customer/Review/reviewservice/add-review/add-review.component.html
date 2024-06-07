@@ -1,0 +1,30 @@
+<!-- Single Page Header start -->
+<div class="container-fluid page-header py-5">
+    <h1 class="text-center text-white display-6"> Review Rating</h1>
+    <ol class="breadcrumb justify-content-center mb-0">
+        <li style="color: rgb(245, 245, 238);"> <a routerLink="/customer-layout/home"> Home /</a> </li>
+        <li style="color: yellow;"> Review Rating</li>
+    </ol>
+</div>
+<!-- Single Page Header End -->
+
+<div class="container">
+    <main>
+        <div class="account-page">
+         
+            <div class="account-detail" >
+                <h2 style="text-align: center;">Rate Your Experience</h2>
+                <div class="col-lg-12" >
+                    <form  [formGroup]="reviewForm" (submit)="submit()">
+                    
+                        <input  type="text" class="w-100 form-control border-2 py-3 mb-4"  placeholder="Your Name" formControlName="name">
+                        <input type="email" class="w-100 form-control border-2 py-3 mb-4" placeholder="Enter Your Email" formControlName="email">
+                        <ngb-rating [max]="5" formControlName="rating"></ngb-rating>
+                        <textarea  id="" cols="149" rows="5" formControlName="review"></textarea>
+                        <button class="w-100 btn form-control border-secondary py-3 bg-white text-primary " type="submit">View</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </main>
+</div>

@@ -1,0 +1,105 @@
+
+<!-- Single Page Header start -->
+<div class="container-fluid page-header py-5">
+    <h1 class="text-center text-white display-6">Updata Profile</h1>
+    <ol class="breadcrumb justify-content-center mb-0">
+        <li style="color: rgb(245, 245, 238);"> <a routerLink="/customer-layout/home"> Home/</a> </li>
+        <li style="color: yellow;"> Updata Profile</li>
+    </ol>
+</div>
+<!-- Single Page Header End -->
+
+
+<div class="img-fluid contact  "
+    style="background: url(assets/images/jump1.jpg);  background-size:cover;  background-repeat: no-repeat; ">
+
+    <div class="container py-5">
+
+        <div class="p-5  rounded " style="backdrop-filter: blur(10px);  background:rgba(26, 26, 26, 0.677)">
+            <div class="row g-4">
+                <div class="col-12">
+                    <div class="text-center mx-auto" style="max-width: 700px;">
+                        <h1 class="text-primary"> <i style="font-size: 50px;">Athletic Geard</i></h1>
+                        <h3 class="text-white "> <b> Update Profile.</b>
+                        </h3>
+
+                    </div>
+                </div>
+                <div class="col-lg-3"></div>
+                <div class="col-lg-6">
+                    <form [formGroup]="profileform" (submit)="profilesubmit()">
+
+
+                        <div class="col-lg-12 form-group">
+
+
+                            <small *ngIf="profileform.controls['name'].valid && profileform.controls['name'].touched">
+                                <i class="bi bi-check2-circle  icon"></i>
+                            </small>
+
+                            <small
+                                *ngIf="profileform.controls['name'].invalid && profileform.controls['name'].touched">
+                                <i class="bi bi-exclamation-circle icons"></i>
+                            </small>
+
+                            <input type="text" class="w-100 form-control border-0 py-3 mb-4" placeholder="Your Name"
+                                formControlName="name" required="name">
+                        </div>
+
+                        <div class="col-lg-12">
+
+
+                            <small
+                                *ngIf="profileform.controls['email'].invalid && profileform.controls['email'].touched">
+                                <i class="bi bi-exclamation-circle icons"></i>
+                            </small>
+
+                            <small
+                                *ngIf="profileform.controls['email'].valid && profileform.controls['email'].touched">
+                                <i class="bi bi-check2-circle  icon"></i>
+                            </small>
+
+
+
+                            <input type="email" class="w-100 form-control border-0 py-3 mb-4"
+                                placeholder="Enter Your Email" formControlName="email" required="email">
+                        </div>
+
+                             <div class="col-lg-12">
+                                <input type="email" class="w-100 form-control border-0 py-3 mb-4"
+                                placeholder="Enter Your Email" formControlName="gender" required="email">
+                             </div>
+
+                        <div class="col-lg-12">
+
+
+                            <small
+                                *ngIf="profileform.controls['phone'].invalid && profileform.controls['phone'].touched">
+                                <i class="bi bi-exclamation-circle icons"></i>
+                            </small>
+
+                            <small
+                                *ngIf="profileform.controls['phone'].valid && profileform.controls['phone'].touched">
+                                <i class="bi bi-check2-circle  icon"></i>
+                            </small>
+
+                            <input type="number" class="w-100 form-control border-0 py-3 mb-4" placeholder="Your Phone"
+                                formControlName="phone" required="phone">
+                        </div>
+
+                        <textarea class="w-100 form-control border-0 mb-4" rows="5" cols="5" placeholder="Your Address"
+                            formControlName="address" required="adders"></textarea>
+
+                        <button class="w-100 btn form-control border-secondary py-3 bg-white text-primary "
+                            type="submit" [disabled]="profileform.invalid">Submit</button>
+                    </form>
+                </div>
+                <div class="col-lg-3">
+                </div>
+            </div>
+           
+        </div>
+    </div>
+</div>
+
+<!-- Contact End -->

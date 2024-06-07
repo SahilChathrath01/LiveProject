@@ -1,0 +1,150 @@
+<!-- Single Page Header start -->
+<div class="container-fluid page-header py-5">
+    <h1 class="text-center text-white display-6">Cart</h1>
+    <ol class="breadcrumb justify-content-center mb-0">
+        <li class="breadcrumb-item"><a href="#">Home</a></li>
+        <li class="breadcrumb-item active text-white">Cart</li>
+    </ol>
+</div>
+<!-- Single Page Header End -->
+
+
+<!-- Cart Page Start -->
+<div class="container-fluid py-5">
+    <div class="container py-5">
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Products</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Price</th>
+                        <th scope="col">Quantity</th>
+                        <th scope="col">Product Total</th>
+                        <th scope="col">Handle</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let x of carts">
+                        <th scope="row">
+                            <div class="d-flex align-items-center">
+                                <img [src]="img_src(x.productId.image)" class="img-fluid me-5 rounded-circle"
+                                    style="width: 80px; height: 80px;" alt="">
+                            </div>
+                        </th>
+                        <td>
+                            <p class="mb-0 mt-4">{{x.productId.name}}</p>
+                        </td>
+                        <td>
+                            <p class="mb-0 mt-4">{{x.productId.price}}</p>
+                        </td>
+                        <td>
+                            <div class="input-group quantity mt-4" style="width: 100px;">
+                                <div class="input-group-btn">
+                                    <button class="btn btn-sm btn-minus rounded-circle bg-light border"
+                                        (click)="minus(x?._id , x?.quantity)">
+                                        <i class="fa fa-minus"></i>
+                                    </button>
+                                </div>
+                                <input type="text" class="form-control form-control-sm text-center border-0"
+                                    [value]="x.quantity" readonly>
+                                <div class="input-group-btn">
+                                    <button class="btn btn-sm btn-plus rounded-circle bg-light border"
+                                        (click)="plus(x?._id , + x?.quantity)">
+                                        <i class="fa fa-plus"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <p class="mb-0 mt-4">{{x.productId.price * x.quantity}}</p>
+                        </td>
+                        <td>
+                            <button class="btn btn-md rounded-circle bg-light border mt-4" (click)="deleteCart(x._id)">
+                                <i class="fa fa-times text-danger"></i>
+                            </button>
+                        </td>
+
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+        <hr>
+        <h3>Shipping Details</h3>
+        <hr>
+        <section>
+            <div class="container">
+                <div class="row g-4">
+                    <div class="col-lg-7">
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- Cart Page End -->
+        <div class="row g-4 justify-content-end m-2">
+
+        </div>
+    </div>
+</div>
+<form [formGroup]="orderForm" (submit)="AddOrder()">
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-8">
+                    <div class="bg-light">
+                        <div class="p-4">
+
+                            <input type="text" class="w-100 form-control border-0 py-3 mb-4 "
+                                placeholder="Shipping Name" formControlName="name">
+
+                            <input type="text" class="w-100 form-control border-0 py-3 mb-4"
+                                placeholder="Shipping Address" formControlName="address">
+
+                            <input type="text" class="w-100 form-control border-0 py-3 mb-4"
+                                placeholder="Shipping Contact" formControlName="contact">
+
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="col-sm-8 col-md-7 col-lg-6 col-xl-4">
+                    <div class="bg-light rounded">
+                        <div class="p-4 ">
+                            <h1 class="display-6 mb-4">Cart <span class="fw-normal">Total</span></h1>
+                            <div class="py-4 mb-4 border-top border-bottom d-flex justify-content-between">
+                                <h5 class="mb-0 ps-4 me-4">Total</h5>
+                                <p class="mb-0 pe-4">&#8377;{{amount}}</p>
+                            </div>
+                            <!-- <div class="py-4 mb-4 border-top border-bottom d-flex justify-content-between">
+                                <h5 class="mb-0 ps-4 me-4">Delvery Recharge</h5>
+                                <p class="mb-0 pe-4">&#8377;{{delivery}}</p>
+                            </div>
+                            <div class="py-4 mb-4 border-top border-bottom d-flex justify-content-between">
+                                <h5 class="mb-0 ps-4 me-4">Tax</h5>
+                                <p class="mb-0 pe-4">&#8377;{{tax}}</p>
+                            </div>
+                            <div class="py-4 mb-4 border-top border-bottom d-flex justify-content-between">
+                                <h5 class="mb-0 ps-4 me-4">SubTotal</h5>
+                                <p class="mb-0 pe-4">&#8377;{{total}}</p>
+                            </div> -->
+
+                        </div>
+                        <hr>
+
+      
+                        <button
+                            class="btn border-secondary rounded-pill px-4 py-3 text-primary text-uppercase mb-4 ms-4"
+                             type="submit"> <a>Place Order</a> </button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+</form>

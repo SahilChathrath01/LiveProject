@@ -1,0 +1,60 @@
+<!-- Single Page Header start -->
+<div class="container-fluid page-header py-5">
+    <h1 class="text-center text-white display-6">Customer</h1>
+    <ol class="breadcrumb justify-content-center mb-0">
+        <li  style="color: rgb(245, 245, 238);" > <a routerLink="/admin-layout/dashboard"> Dashboard  /</a> </li>
+        <li   style="color: yellow;">Customer List</li>
+    </ol>
+</div>
+<!-- Single Page Header End -->
+
+<section id="manage-category" class="manage-category">
+
+    <div class="container" data-aso="fade-up">
+        <div class="row position-relative">
+            <div class="col-lg-6 p-3">
+                <h3>Customer List</h3>
+            </div>
+
+         
+            <div class="col-lg-6 p-3">
+                <h3 class="text-end">{{customers.length}}</h3>
+            </div>
+            <table class="table table-warning">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Gender</th>
+                        <th scope="col">Address</th>
+                        <th scope="col">Contact</th>
+                        <th scope="col">Creat At</th>
+                        <th scope="col">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let x of customers">
+                        <th scope="row">{{x.autoId}}</th>
+                        <td>{{x.userId.name}}</td>
+                        <td>{{x.email}}</td>
+                        <td>{{x.gender}}</td>
+                        <td>{{x.address}}</td>
+                        <td>{{x.phone}}</td>
+                        <td>{{x.createdAt | date}}</td>
+                       <td>
+                            
+
+                        <button  class="btn btn-sm" [ngClass]="x?.userId?.status == true ? 'btn-outline-success' : 'btn-success' " (click)="change_status(x?.userId, 'true')" type="submit" [disabled]="x?.userId?.status == true" >
+                            <i class="bi bi-check">Unblock</i>
+                        </button>
+                        <button  class="btn btn-sm" [ngClass]="x?.userId?.status == false ? 'btn-outline-danger' : 'btn-danger' " (click)="change_status(x?.userId, 'false')" type="submit" [disabled]="x?.userId?.status == false">
+                            <i class="bi bi-x">Block</i>
+                        </button>
+                       </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>

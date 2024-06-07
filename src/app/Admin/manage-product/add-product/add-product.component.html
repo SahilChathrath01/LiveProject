@@ -1,0 +1,84 @@
+<!-- Contact Start -->
+
+
+<!-- Single Page Header start -->
+<div class="container-fluid page-header py-5">
+    <h1 class="text-center text-white display-6">Add Product</h1>
+    <ol class="breadcrumb justify-content-center mb-0">
+        <li style="color: rgb(245, 245, 238);"> <a routerLink="/admin-layout/dashboard"> Dashboard /</a> </li>
+        <li style="color: yellow;"> Add Product</li>
+    </ol>
+</div>
+<!-- Single Page Header End -->
+<div class="img-fluid contact  p-5 "
+    style="background: url(assets/images/login1.png);  background-size:cover;  height: 800%;  background-repeat: no-repeat; ">
+    <div class="container py-5">
+        <div class="p-5  rounded "
+            style="backdrop-filter: blur(10px); height: 500px;  background:rgba(26, 26, 26, 0.37)  ">
+            <div class="row g-4">
+
+                <div class="col-lg-3"></div>
+                <div class="col-lg-6">
+                    <form [formGroup]="ProductForm" (submit)="submit()"  enctype="multipart/form-data"  >
+
+
+                        <div class="col-lg-12 form-group pt-5">
+                            <!-- error icon  -->
+
+                            <small *ngIf="ProductForm.controls['name'].valid && ProductForm.controls['name'].touched">
+                                <i class="bi bi-exclamation-circle icons"></i>
+                            </small>
+
+                            <!-- check end -->
+                            <input type="text" class="w-100 form-control border-0 py-3 mb-4" placeholder="Product Name"
+                                formControlName="name">
+                        </div>
+
+                        <div class="col-lg-12 form-group">
+                            <!-- error icon  -->
+
+                            <small
+                                *ngIf="ProductForm.controls['description'].valid && ProductForm.controls['description'].touched">
+                                <i class="bi bi-exclamation-circle icons"></i>
+                            </small>
+
+                            <!-- check end -->
+                            <input type="text" class="w-100 form-control border-0 py-3 mb-4"
+                                placeholder="Product  Description" formControlName="description">
+                        </div>
+
+                        <div class="col-lg-12 form-group w-100 form-control border-0 py-3 mb-4">
+                            <select formControlName="categoryId" id="" class="form-select" >
+                                <option value="">Choose Category</option>
+            
+                                <option *ngFor="let x of categories" [value]="x._id">{{x.name}}</option>
+                            </select>
+                            <small class="text-danger"
+                            *ngIf="ProductForm.controls['categoryId'].invalid && ProductForm.controls['categoryId'].touched">Required.</small>
+                        </div>
+
+
+                        <div class="col-lg-12 form-group">
+                            <!-- check end -->
+                            <input type="file" class="w-100 form-control border-0 py-3 mb-4" placeholder="Password" (change)="img_change($event)">
+                        </div>
+
+                        <div class="col-lg-12 form-group">
+                            <!-- check end -->
+                            <input type="number" class="w-100 form-control border-0 py-3 mb-4"
+                                placeholder=" Product  Price" formControlName="price">
+                        </div>
+
+                        <button class="w-100 btn form-control border-secondary py-3 bg-white text-primary "
+                            type="submit" [disabled]="ProductForm.invalid">Submit</button>
+                    </form>
+                </div>
+                <div class="col-lg-3">
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!-- Contact End -->

@@ -1,0 +1,39 @@
+<!-- Single Page Header start -->
+<div class="container-fluid page-header py-5">
+    <h1 class="text-center text-white display-6">Dashboard</h1>
+    <ol class="breadcrumb justify-content-center mb-0">
+        <li style="color: yellow;">Dashboard</li>
+    </ol>
+</div>
+<!-- Single Page Header End -->
+
+<section>
+    <div class="container" data-aso="fade-up" >
+        <div class="row position-relative">
+            <div class="col-lg-3  p-3">
+                <div class="bg-warning">
+                    <h3 class="text-center">Total Customer</h3>
+                    <h1 class="text-center" >{{dashboardData?.TotalCustomers}}</h1>
+                </div>
+            </div>
+            <div class="col-lg-3  p-3">
+                <div class="bg-warning">
+                    <h3 class="text-center">Products</h3>
+                    <h1 class="text-center">{{dashboardData?.TotalProducts}}</h1>
+                </div>
+            </div>
+            <div class="col-lg-3  p-3">
+                <div class="bg-warning">
+                    <h3 class="text-center">Total Orders</h3>
+                    <h1 class="text-center">{{dashboardData?.TotalOrders}}</h1>
+                </div>
+            </div>
+            <div class="col-lg-3  p-3">
+                <div class="bg-warning">
+                    <h3 class="text-center">Total Category</h3>
+                    <h1 class="text-center">{{dashboardData?.TotalCategories}}</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

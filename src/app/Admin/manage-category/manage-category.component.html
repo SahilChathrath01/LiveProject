@@ -1,0 +1,58 @@
+<!-- Single Page Header start -->
+<div class="container-fluid page-header py-5">
+    <h1 class="text-center text-white display-6">Manage-Category</h1>
+    <ol class="breadcrumb justify-content-center mb-0">
+        <li style="color: rgb(245, 245, 238);"> <a routerLink="/admin-layout/dashboard"> Dashboard /</a> </li>
+        <li style="color: yellow;"> Manage-Category</li>
+    </ol>
+</div>
+<!-- Single Page Header End -->
+
+
+<section id="manage-category" class="">
+    <div class="container" data-aso="fade-up">
+        <div class="row position-relative">
+            <div class="col-lg-6 p-3">
+                <h3>Category List</h3>
+            </div>
+
+            <div class="col-lg-6 p-3  text-end">
+                <button class="btn btn-warning" routerLink="/admin-layout/add-category">Add Category</button>
+            </div>
+            <table class="table table-warning">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Description</th>
+                        <th scope="col">Image</th>
+                        <th scope="col">Creat At</th>
+                        <th scope="col">Action</th>
+                        <th scope="col">Status</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let x of categors">
+                        <th scope="row">{{x?.autoId}}</th>
+                        <td>{{x?.name}}</td>
+                        <td style="width: 500px;">{{x?.description}}</td>
+                        <td><img height="100px" [src]="path_img(x.image)" alt=""></td>
+                        <td>{{x?.createdAt | date}}</td>
+                        <td>
+                            <button class="btn btn-success btn-sm m-1" [routerLink]='["/admin-layout/update-category",x._id]'>
+                                <i class="bi bi-pen-fill"></i>
+                            </button>
+                            <button class="btn btn-danger btn-sm" (click)="deleteCategory(x._id)">
+                                <i class="bi bi-file-earmark-excel"></i>
+                            </button>
+
+                        </td>
+                        <td class="text-danger">{{x.status}}</td>
+
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>

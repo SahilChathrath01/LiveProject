@@ -1,0 +1,41 @@
+<!-- Single Page Header start -->
+<div class="container-fluid page-header py-5">
+    <h1 class="text-center text-white display-6">View Item</h1>
+    <ol class="breadcrumb justify-content-center mb-0">
+        <li style="color: yellow;"> View Item</li>
+    </ol>
+</div>
+<!-- Single Page Header End -->
+
+<section id="view order item" class="view order item">
+
+<div class="container" data-aso="fade-up">
+    <div class="row   position:relative">
+      <div class="col-lg-6 p-3">
+        <h3>Order Id</h3>
+      </div>
+      <table class="table table-warning">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Item Name</th>
+            <th scope="col">Price</th>
+            <th scope="col">Image</th>
+            <th scope="col">Quantity
+
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let x of Orders; let i = index">
+            <th scope="row">{{i+1}}</th>
+            <td>{{x?.productId?.name}}</td>
+            <td>{{x.price}}</td>
+            <td><img  height="100px" [src]="img_src(x?.productId?.image)" alt=""></td>
+            <td>{{x.quantity}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+</div>
+
+</section>

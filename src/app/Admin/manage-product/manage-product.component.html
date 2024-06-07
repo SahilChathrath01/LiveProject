@@ -1,0 +1,61 @@
+<!-- Single Page Header start -->
+<div class="container-fluid page-header py-5">
+  <h1 class="text-center text-white display-6">Manage-Product</h1>
+  <ol class="breadcrumb justify-content-center mb-0">
+    <li style="color: rgb(245, 245, 238);"> <a routerLink="/admin-layout/dashboard"> Dashboard /</a> </li>
+    <li style="color: yellow;"> Manage-Product</li>
+  </ol>
+</div>
+<!-- Single Page Header End -->
+
+<section>
+  <div class="container" data-aso="fade-up" style=" padding: 1rem; ">
+    <div class="row position-relative " style="  align-items: stretch;
+    display: flex;
+    flex-wrap: wrap;">
+      <div class="col-lg-6 ">
+        <h3 class="">Product List </h3>
+      </div>
+      <div class="col-lg-6 p-2  text-end">
+        <button class="btn btn-warning" routerLink="/admin-layout/add-product">Add Product</button>
+      </div>
+      <table class="table   table-warning " style="  flex: 1 1 auto;">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Category</th>
+            <th scope="col">Product Name</th>
+            <th scope="col">Description</th>
+            <th scope="col">Price</th>
+            <th scope="col">Image</th>
+            <th scope="col">Creat At</th>
+            <th scope="col">Action</th>
+
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let x of productes">
+            <th scope="row">{{x.autoId}}</th>
+            <td>{{x?.categoryId?.name}}</td>
+            <td>{{x.name}}</td>
+            <td>
+              <li hight="200px">{{x.description}}</li>
+
+            </td>
+            <td>{{x.price | currency:"INR" }}</td>
+            <th><img height="100px" [src]="path_img(x?.image)" alt=""></th>
+            <th>{{x.createdAt | date}}</th>
+            <th>
+              <button class="btn btn-success btn-sm m-1" [routerLink]='["/admin-layout/update-product",x._id]'>
+                <i class="bi bi-pen-fill"></i>
+              </button>
+              <button class="btn btn-danger btn-sm" (click)="deleteCategory(x._id)">
+                <i class="bi bi-file-earmark-excel"></i>
+              </button>
+            </th>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>

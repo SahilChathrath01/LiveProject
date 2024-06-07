@@ -1,0 +1,66 @@
+<!-- Single Page Header start -->
+<div class="container-fluid page-header py-5">
+  <h1 class="text-center text-white display-6">Manage-Order</h1>
+  <ol class="breadcrumb justify-content-center mb-0">
+    <li style="color: rgb(245, 245, 238);"> <a routerLink="/admin-layout/dashboard"> Dashboard /</a> </li>
+    <li style="color: yellow;"> Manage-Order</li>
+  </ol>
+</div>
+<!-- Single Page Header End -->
+<section id="manage-category" class="">
+  <div class="container" data-aso="fade-up">
+      <div class="row ">
+          <div class=" p-2">
+              <h3>Order Details</h3>
+          </div>
+          <table class="table  table-warning">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+
+                <th scope="col">Name</th>
+        
+
+                <th scope="col">Total Amount</th>
+                <!-- <th scope="col">Shipping Name</th> -->
+
+                <th scope="col">Shipping Contact</th>
+
+                <th scope="col">Address</th>
+                <th scope="col">Status</th>
+                <th scope="col">Action</th>
+                <th scope="col">Order Item</th>
+                <th scope="col">TrakingId</th>
+
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let x of Orders">
+                <th scope="row">{{x.autoId}}</th>
+                <td>{{x.name}}</td>
+        
+                <td>{{x.total}}</td>
+                <!-- <td>{{x.userId.name}}</td> -->
+                <td>{{x.contact}}</td>
+                <td>{{x.address}}</td>
+                <td class="text-danger">{{x.status}}</td>
+                <td class="text-danger">
+                  
+                  <button class="btn btn-primary   btn-sm p-2 "(click)="changeStatus(x?._id, 'Approved')" *ngIf="x?.status == 'Pending'" >Approve</button>
+
+                  <button class="btn btn-danger   btn-sm p-2"(click)="changeStatus(x?._id, 'Declined')" *ngIf="x?.status == 'Pending'" >Decline</button>
+
+                  <button class="btn btn-primary    btn-sm p-2"(click)="changeStatus(x?._id, 'Completed')" *ngIf="x?.status == 'Approved'" >Complete</button>
+                </td>
+                <td>
+                <button [routerLink]="['/admin-layout/view-order-item', x?._id]" class="btn btn-primary   btn-sm  w-100 " ><i class="bi bi-eye-fill "></i></button>
+                </td>
+                <td>
+                  <button [routerLink]="['/admin-layout/manage-trakingId', x?._id]" class="btn btn-primary   btn-sm  w-100 " ><i class="bi bi-eye-fill "></i></button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+      </div>
+  </div>
+</section>
